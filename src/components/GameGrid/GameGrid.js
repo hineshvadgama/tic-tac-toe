@@ -1,7 +1,7 @@
 import React from 'react';
-import './Grid.css';
+import './GameGrid.css';
 
-const Grid = () => {
+const GameGrid = () => {
 
     return (
 
@@ -23,4 +23,4 @@ const Grid = () => {
 
 }
 
-export default Grid;
+export default GameGrid;

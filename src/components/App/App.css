@@ -1,0 +1,25 @@
+.mobile-app-container {
+    display: none;
+}
+
+.page-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin: 0 auto;
+}
+
+.grid-item {
+    text-align: center;
+}
+
+@media only screen and (max-width: 480px) {
+    
+    .desktop-app-container {
+        display: none;
+    }
+
+    .mobile-app-container {
+        display: block;
+    }
+
+}

@@ -12,7 +12,7 @@
     text-align: center;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 768px) {
     
     .desktop-app-container {
         display: none;

@@ -1,12 +1,13 @@
 import React from 'react';
+import './PlayerInfo.css';  
 
 const PlayerInfo = (props) => {
 
     return (
 
         <>
-            <h2>{props.playerName}</h2>
-            <strong>{props.symbol}</strong>
+            <h1 className="player-info" id={props.playerName === 'Player One' ? 'green' : 'pink'}>{props.playerName}</h1>
+            <h1 className="player-info" id={props.playerName === 'Player One' ? 'green' : 'pink'}>{props.symbol}</h1>
         </>
 
     )

@@ -18,6 +18,10 @@
     border: 1px solid black;
 }
 
+.grid-square:hover {
+    cursor: pointer;
+}
+
 .top {
     border-top: none;
 }
@@ -32,14 +36,6 @@
 
 .right {
     border-right: none;
-}
-
-#one, #three, #five, #seven, #nine {
-    color: #ff2bea;
-}
-
-#two, #four, #six, #eight {
-    color: #4bfa4b;
 }
 
 @media only screen and (max-width: 480px) {

@@ -1,0 +1,48 @@
+.winner-modal-container {
+    display: block;
+    position: fixed;
+    width: 360px;
+    height: 60vh;
+    top: 20vh;
+    left: 50%;
+    margin-left: -180px;
+    bottom: 20vh;
+    text-align: center;
+    background-color: #202020;
+    border: 1px solid black;
+}
+
+.winner-modal-container img {
+    width: 80%;
+}
+
+#winner-modal-button {
+    position: relative;
+    width: 40%;
+    height: 10%;
+    font-size: 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: #4bfa4b;
+}
+
+#winner-modal-button:hover {
+    cursor: pointer;
+}
+
+#winner-modal-button:focus {
+    outline: none;
+}
+
+#winner-modal-button:active {
+    box-shadow: 0 0 20px #000
+}
+
+@media only screen and (max-width: 480px) {
+
+    .winner-modal-container {
+        width: 300px;
+        margin-left: -150px;
+    }
+
+}

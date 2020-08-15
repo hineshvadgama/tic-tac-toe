@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './GameGrid.css';
+import WinnerModal from '../WinnerModal/WinnerModal.js';
 
 const GameGrid = () => {
 
@@ -135,21 +136,25 @@ const GameGrid = () => {
 
     return (
 
-        <div className="game-grid">
+        <>
 
-            {console.log(winner)}
+            <div className="game-grid">
 
-            <div onClick={handleGridSquareClick} data-value={gridData.square1} id="one"   className={`grid-square top left ${gridData.square1 === 'O' ? 'green' : 'pink'}`}>{gridData.square1}</div>
-            <div onClick={handleGridSquareClick} data-value={gridData.square2} id="two"   className={`grid-square top ${gridData.square2 === 'O' ? 'green' : 'pink'}`}>{gridData.square2}</div>
-            <div onClick={handleGridSquareClick} data-value={gridData.square3} id="three" className={`grid-square top right ${gridData.square3 === 'O' ? 'green' : 'pink'}`}>{gridData.square3}</div>
-            <div onClick={handleGridSquareClick} data-value={gridData.square4} id="four"  className={`grid-square left ${gridData.square4 === 'O' ? 'green' : 'pink'}`}>{gridData.square4}</div>
-            <div onClick={handleGridSquareClick} data-value={gridData.square5} id="five"  className={`grid-square ${gridData.square5 === 'O' ? 'green' : 'pink'}`}>{gridData.square5}</div>
-            <div onClick={handleGridSquareClick} data-value={gridData.square6} id="six"   className={`grid-square right ${gridData.square6 === 'O' ? 'green' : 'pink'}`}>{gridData.square6}</div>
-            <div onClick={handleGridSquareClick} data-value={gridData.square7} id="seven" className={`grid-square bottom left ${gridData.square7 === 'O' ? 'green' : 'pink'}`}>{gridData.square7}</div>
-            <div onClick={handleGridSquareClick} data-value={gridData.square8} id="eight" className={`grid-square bottom ${gridData.square8 === 'O' ? 'green' : 'pink'}`}>{gridData.square8}</div>
-            <div onClick={handleGridSquareClick} data-value={gridData.square9} id="nine"  className={`grid-square bottom right ${gridData.square9 === 'O' ? 'green' : 'pink'}`}>{gridData.square9}</div>
+                <div onClick={handleGridSquareClick} data-value={gridData.square1} id="one"   className={`grid-square top left ${gridData.square1 === 'O' ? 'green' : 'pink'}`}>{gridData.square1}</div>
+                <div onClick={handleGridSquareClick} data-value={gridData.square2} id="two"   className={`grid-square top ${gridData.square2 === 'O' ? 'green' : 'pink'}`}>{gridData.square2}</div>
+                <div onClick={handleGridSquareClick} data-value={gridData.square3} id="three" className={`grid-square top right ${gridData.square3 === 'O' ? 'green' : 'pink'}`}>{gridData.square3}</div>
+                <div onClick={handleGridSquareClick} data-value={gridData.square4} id="four"  className={`grid-square left ${gridData.square4 === 'O' ? 'green' : 'pink'}`}>{gridData.square4}</div>
+                <div onClick={handleGridSquareClick} data-value={gridData.square5} id="five"  className={`grid-square ${gridData.square5 === 'O' ? 'green' : 'pink'}`}>{gridData.square5}</div>
+                <div onClick={handleGridSquareClick} data-value={gridData.square6} id="six"   className={`grid-square right ${gridData.square6 === 'O' ? 'green' : 'pink'}`}>{gridData.square6}</div>
+                <div onClick={handleGridSquareClick} data-value={gridData.square7} id="seven" className={`grid-square bottom left ${gridData.square7 === 'O' ? 'green' : 'pink'}`}>{gridData.square7}</div>
+                <div onClick={handleGridSquareClick} data-value={gridData.square8} id="eight" className={`grid-square bottom ${gridData.square8 === 'O' ? 'green' : 'pink'}`}>{gridData.square8}</div>
+                <div onClick={handleGridSquareClick} data-value={gridData.square9} id="nine"  className={`grid-square bottom right ${gridData.square9 === 'O' ? 'green' : 'pink'}`}>{gridData.square9}</div>
 
-        </div>
+            </div>
+
+            { winner !== 'Nobody' ? <WinnerModal winner={winner} /> : false }
+
+        </>
 
     )
 

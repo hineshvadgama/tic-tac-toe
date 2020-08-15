@@ -3,6 +3,7 @@
     position: fixed;
     width: 360px;
     height: 60vh;
+    max-height: 500px;
     top: 20vh;
     left: 50%;
     margin-left: -180px;
@@ -10,6 +11,10 @@
     text-align: center;
     background-color: #202020;
     border: 1px solid black;
+}
+
+.winner-modal-container h1 {
+    padding-top: 10px;
 }
 
 .winner-modal-container img {
@@ -20,6 +25,7 @@
     position: relative;
     width: 40%;
     height: 10%;
+    margin-top: 8%;
     font-size: 20px;
     border: none;
     border-radius: 25px;

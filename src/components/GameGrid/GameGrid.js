@@ -3,7 +3,10 @@ import './GameGrid.css';
 
 const GameGrid = () => {
 
+    let tempGridData;
+    let [winner, setWinner] = useState('Nobody');
     let [whichPlayersTurn, setWhichPlayersTurn] = useState(1);
+    let [numberOfTurns, setNumberOfTurns] = useState(0);
     let [gridData, setGridData] = useState(
             {
                 square1: '',
@@ -17,11 +20,13 @@ const GameGrid = () => {
                 square9: ''
             }
         );
-    let tempGridData;
 
     function handleGridSquareClick(e) {
 
+        // Ensure that player hasn't clicked on already occupied square
         if (document.getElementById(e.target.id).getAttribute('data-value') === '') {
+
+            setNumberOfTurns(numberOfTurns + 1);
 
             tempGridData = gridData;
 
@@ -63,17 +68,76 @@ const GameGrid = () => {
                     break;
 
                 default:
-                    console.log('hey')
+                    console.log('Unknown square');
             }
 
             setGridData(tempGridData);
             setWhichPlayersTurn(whichPlayersTurn === 1 ? 2 : 1);
+
+            if (numberOfTurns >= 4) {
+                decideWinner();
+            }
         }
+    }
+
+    function decideWinner() {
+
+        if (gridData.square1 === 'O' && gridData.square2 === 'O' && gridData.square3 === 'O') {
+            setWinner('Player One');
+        }
+        else if (gridData.square1 === 'X' && gridData.square2 === 'X' && gridData.square3 === 'X') {
+            setWinner('Player Two');
+        }
+        else if (gridData.square4 === 'O' && gridData.square5 === 'O' && gridData.square6 === 'O') {
+            setWinner('Player One');
+        }
+        else if (gridData.square4 === 'X' && gridData.square5 === 'X' && gridData.square6 === 'X') {
+            setWinner('Player Two');
+        }
+        else if (gridData.square7 === 'O' && gridData.square8 === 'O' && gridData.square9 === 'O') {
+            setWinner('Player One');
+        }
+        else if (gridData.square7 === 'X' && gridData.square8 === 'X' && gridData.square9 === 'X') {
+            setWinner('Player Two');
+        }
+        else if (gridData.square1 === 'O' && gridData.square4 === 'O' && gridData.square7 === 'O') {
+            setWinner('Player One');
+        }
+        else if (gridData.square1 === 'X' && gridData.square4 === 'X' && gridData.square7 === 'X') {
+            setWinner('Player Two');
+        }
+        else if (gridData.square2 === 'O' && gridData.square5 === 'O' && gridData.square8 === 'O') {
+            setWinner('Player One');
+        }
+        else if (gridData.square2 === 'X' && gridData.square5 === 'X' && gridData.square8 === 'X') {
+            setWinner('Player Two');
+        }
+        else if (gridData.square3 === 'O' && gridData.square6 === 'O' && gridData.square9 === 'O') {
+            setWinner('Player One');
+        }
+        else if (gridData.square3 === 'X' && gridData.square6 === 'X' && gridData.square9 === 'X') {
+            setWinner('Player Two');
+        }
+        else if (gridData.square1 === 'O' && gridData.square5 === 'O' && gridData.square9 === 'O') {
+            setWinner('Player One');
+        }
+        else if (gridData.square1 === 'X' && gridData.square5 === 'X' && gridData.square9 === 'X') {
+            setWinner('Player Two');
+        }
+        else if (gridData.square3 === 'O' && gridData.square5 === 'O' && gridData.square7 === 'O') {
+            setWinner('Player One');
+        }
+        else if (gridData.square3 === 'X' && gridData.square5 === 'X' && gridData.square7 === 'X') {
+            setWinner('Player Two');
+        }
+
     }
 
     return (
 
         <div className="game-grid">
+
+            {console.log(winner)}
 
             <div onClick={handleGridSquareClick} data-value={gridData.square1} id="one"   className={`grid-square top left ${gridData.square1 === 'O' ? 'green' : 'pink'}`}>{gridData.square1}</div>
             <div onClick={handleGridSquareClick} data-value={gridData.square2} id="two"   className={`grid-square top ${gridData.square2 === 'O' ? 'green' : 'pink'}`}>{gridData.square2}</div>

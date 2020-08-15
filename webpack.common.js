@@ -1,11 +1,6 @@
 const path = require('path');
 
 module.exports = {
-    devServer: {
-        contentBase: path.resolve(__dirname, './src'),
-        historyApiFallback: true,
-        port: 3000
-    },
     entry: path.resolve(__dirname, './src/index.js'),
     module: {
         rules: [

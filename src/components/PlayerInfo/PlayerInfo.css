@@ -8,4 +8,16 @@
         font-size: 28px;
     }
 
+    #player-one-label {
+        padding-top: 20px;
+    }
+
+}
+
+@media only screen and (max-width: 480px) {
+
+    #player-one-label {
+        padding-top: 40px;
+    }
+
 }

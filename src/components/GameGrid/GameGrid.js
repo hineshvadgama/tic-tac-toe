@@ -134,6 +134,25 @@ const GameGrid = () => {
 
     }
 
+    function resetGame() {
+        setWinner('Nobody');
+        setWhichPlayersTurn(1);
+        setNumberOfTurns(0);
+        setGridData(
+            {
+                square1: '',
+                square2: '',
+                square3: '',
+                square4: '',
+                square5: '',
+                square6: '',
+                square7: '',
+                square8: '',
+                square9: ''
+            }
+        )
+    }
+
     return (
 
         <>
@@ -152,7 +171,7 @@ const GameGrid = () => {
 
             </div>
 
-            { winner !== 'Nobody' ? <WinnerModal winner={winner} /> : false }
+            { winner !== 'Nobody' ? <WinnerModal winner={winner} reset={resetGame} /> : false }
 
         </>
 

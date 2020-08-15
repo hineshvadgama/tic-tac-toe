@@ -14,7 +14,7 @@ const WinnerModal = (props) => {
             
             <img src="../../img/trophy.png" />
 
-            <button id="winner-modal-button" style={style}>Play again!</button>
+            <button id="winner-modal-button" onClick={props.reset} style={style}>Play again!</button>
 
         </div>
 

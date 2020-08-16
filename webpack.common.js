@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: path.resolve(__dirname, './src/index.js'),
@@ -6,10 +7,28 @@ module.exports = {
         rules: [
             { test: /\.js$/, use: 'babel-loader' },
             { test: /\.css$/, use: ['style-loader', 'css-loader'] },
-            { test: /\.(woff|woff2|eot|ttf|otf)/, use: 'file-loader' }
+            {
+                test: /\.(ttf$)/,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: 'fonts'
+                }
+            },
+            {
+                test: /\.(png$)/,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: 'img'
+                }
+            }
         ]
     },
     output: {
         filename: 'bundle.js'
-    }
+    },
+    plugins: [new HtmlWebpackPlugin({
+        favicon: "./src/favicon.ico"
+    })]
 }

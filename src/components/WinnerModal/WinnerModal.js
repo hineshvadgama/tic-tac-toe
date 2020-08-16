@@ -1,5 +1,6 @@
 import React from 'react';
 import './WinnerModal.css';
+import TrophyImage from '../../img/trophy.png';
 
 const WinnerModal = (props) => {
 
@@ -12,7 +13,7 @@ const WinnerModal = (props) => {
 
             <h1 className={classColour}>{props.winner}</h1>
             
-            <img src="../../img/trophy.png" />
+            <img src={TrophyImage} />
 
             <button id="winner-modal-button" onClick={props.reset} style={style}>Play again!</button>
 

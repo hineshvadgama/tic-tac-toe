@@ -5,7 +5,7 @@ import WinnerModal from '../WinnerModal/WinnerModal.js';
 const GameGrid = () => {
 
     let tempGridData;
-    let [winner, setWinner] = useState('Nobody');
+    let [winnerText, setWinnerText] = useState('Nobody');
     let [whichPlayersTurn, setWhichPlayersTurn] = useState(1);
     let [numberOfTurns, setNumberOfTurns] = useState(0);
     let [gridData, setGridData] = useState(
@@ -84,58 +84,63 @@ const GameGrid = () => {
     function decideWinner() {
 
         if (gridData.square1 === 'O' && gridData.square2 === 'O' && gridData.square3 === 'O') {
-            setWinner('Player One');
+            setWinnerText('Player One Wins!');
         }
         else if (gridData.square1 === 'X' && gridData.square2 === 'X' && gridData.square3 === 'X') {
-            setWinner('Player Two');
+            setWinnerText('Player Two Wins1');
         }
         else if (gridData.square4 === 'O' && gridData.square5 === 'O' && gridData.square6 === 'O') {
-            setWinner('Player One');
+            setWinnerText('Player One Wins!');
         }
         else if (gridData.square4 === 'X' && gridData.square5 === 'X' && gridData.square6 === 'X') {
-            setWinner('Player Two');
+            setWinnerText('Player Two Wins!');
         }
         else if (gridData.square7 === 'O' && gridData.square8 === 'O' && gridData.square9 === 'O') {
-            setWinner('Player One');
+            setWinnerText('Player One Wins!');
         }
         else if (gridData.square7 === 'X' && gridData.square8 === 'X' && gridData.square9 === 'X') {
-            setWinner('Player Two');
+            setWinnerText('Player Two Wins!');
         }
         else if (gridData.square1 === 'O' && gridData.square4 === 'O' && gridData.square7 === 'O') {
-            setWinner('Player One');
+            setWinnerText('Player One Wins!');
         }
         else if (gridData.square1 === 'X' && gridData.square4 === 'X' && gridData.square7 === 'X') {
-            setWinner('Player Two');
+            setWinnerText('Player Two Wins!');
         }
         else if (gridData.square2 === 'O' && gridData.square5 === 'O' && gridData.square8 === 'O') {
-            setWinner('Player One');
+            setWinnerText('Player One Wins!');
         }
         else if (gridData.square2 === 'X' && gridData.square5 === 'X' && gridData.square8 === 'X') {
-            setWinner('Player Two');
+            setWinnerText('Player Two Wins!');
         }
         else if (gridData.square3 === 'O' && gridData.square6 === 'O' && gridData.square9 === 'O') {
-            setWinner('Player One');
+            setWinnerText('Player One Wins!');
         }
         else if (gridData.square3 === 'X' && gridData.square6 === 'X' && gridData.square9 === 'X') {
-            setWinner('Player Two');
+            setWinnerText('Player Two Wins!');
         }
         else if (gridData.square1 === 'O' && gridData.square5 === 'O' && gridData.square9 === 'O') {
-            setWinner('Player One');
+            setWinnerText('Player One Wins!');
         }
         else if (gridData.square1 === 'X' && gridData.square5 === 'X' && gridData.square9 === 'X') {
-            setWinner('Player Two');
+            setWinnerText('Player Two Wins!');
         }
         else if (gridData.square3 === 'O' && gridData.square5 === 'O' && gridData.square7 === 'O') {
-            setWinner('Player One');
+            setWinnerText('Player One Wins!');
         }
         else if (gridData.square3 === 'X' && gridData.square5 === 'X' && gridData.square7 === 'X') {
-            setWinner('Player Two');
+            setWinnerText('Player Two Wins!');
+        }
+        else if (gridData.square1 !== '' && gridData.square2 !== '' && gridData.square3 !== '' && gridData.square4 !== ''
+        && gridData.square5 !== '' && gridData.square5 !== '' && gridData.square6 !== '' && gridData.square7 !== ''
+        && gridData.square8 !== '' && gridData.square9 !== '' && winnerText === 'Nobody') {
+            setWinnerText("It's a tie");
         }
 
     }
 
     function resetGame() {
-        setWinner('Nobody');
+        setWinnerText('Nobody');
         setWhichPlayersTurn(1);
         setNumberOfTurns(0);
         setGridData(
@@ -171,7 +176,7 @@ const GameGrid = () => {
 
             </div>
 
-            { winner !== 'Nobody' ? <WinnerModal winner={winner} reset={resetGame} /> : false }
+            { winnerText !== 'Nobody' ? <WinnerModal winner={winnerText} reset={resetGame} /> : false }
 
         </>
 

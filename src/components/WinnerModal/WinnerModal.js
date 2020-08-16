@@ -3,14 +3,14 @@ import './WinnerModal.css';
 
 const WinnerModal = (props) => {
 
-    const classColour = props.winner === 'Player One' ? 'green' : 'pink';
-    const style = {backgroundColor: props.winner === 'Player One' ? '##4bfa4b' : '#ff2bea'}
+    const classColour = props.winner === 'Player One Wins!' ? 'green' : 'pink';
+    const style = {backgroundColor: props.winner === 'Player Two Wins!' ? '#ff2bea' : '#4bfa4b'}
 
     return (
 
         <div className="winner-modal-container">
 
-            <h1 className={classColour}>{props.winner} Wins!</h1>
+            <h1 className={classColour}>{props.winner}</h1>
             
             <img src="../../img/trophy.png" />
 

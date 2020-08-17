@@ -113,7 +113,7 @@ const GameGrid = () => {
             setWinnerText(playerOneWinningText);
         }
         else if (gridData.square2 === 'X' && gridData.square5 === 'X' && gridData.square8 === 'X') {
-            setWinnerText(playerTwoWinningText;
+            setWinnerText(playerTwoWinningText);
         }
         else if (gridData.square3 === 'O' && gridData.square6 === 'O' && gridData.square9 === 'O') {
             setWinnerText(playerOneWinningText);

@@ -5,6 +5,8 @@ import WinnerModal from '../WinnerModal/WinnerModal.js';
 const GameGrid = () => {
 
     let tempGridData;
+    const playerOneWinningText = 'Player One Wins!';
+    const playerTwoWinningText = 'Player Two Wins!';
     let [winnerText, setWinnerText] = useState('Nobody');
     let [whichPlayersTurn, setWhichPlayersTurn] = useState(1);
     let [numberOfTurns, setNumberOfTurns] = useState(0);
@@ -84,52 +86,52 @@ const GameGrid = () => {
     function decideWinner() {
 
         if (gridData.square1 === 'O' && gridData.square2 === 'O' && gridData.square3 === 'O') {
-            setWinnerText('Player One Wins!');
+            setWinnerText(playerOneWinningText);
         }
         else if (gridData.square1 === 'X' && gridData.square2 === 'X' && gridData.square3 === 'X') {
-            setWinnerText('Player Two Wins1');
+            setWinnerText(playerTwoWinningText);
         }
         else if (gridData.square4 === 'O' && gridData.square5 === 'O' && gridData.square6 === 'O') {
-            setWinnerText('Player One Wins!');
+            setWinnerText(playerOneWinningText);
         }
         else if (gridData.square4 === 'X' && gridData.square5 === 'X' && gridData.square6 === 'X') {
-            setWinnerText('Player Two Wins!');
+            setWinnerText(playerTwoWinningText);
         }
         else if (gridData.square7 === 'O' && gridData.square8 === 'O' && gridData.square9 === 'O') {
-            setWinnerText('Player One Wins!');
+            setWinnerText(playerOneWinningText);
         }
         else if (gridData.square7 === 'X' && gridData.square8 === 'X' && gridData.square9 === 'X') {
-            setWinnerText('Player Two Wins!');
+            setWinnerText(playerTwoWinningText);
         }
         else if (gridData.square1 === 'O' && gridData.square4 === 'O' && gridData.square7 === 'O') {
-            setWinnerText('Player One Wins!');
+            setWinnerText(playerOneWinningText);
         }
         else if (gridData.square1 === 'X' && gridData.square4 === 'X' && gridData.square7 === 'X') {
-            setWinnerText('Player Two Wins!');
+            setWinnerText(playerTwoWinningText);
         }
         else if (gridData.square2 === 'O' && gridData.square5 === 'O' && gridData.square8 === 'O') {
-            setWinnerText('Player One Wins!');
+            setWinnerText(playerOneWinningText);
         }
         else if (gridData.square2 === 'X' && gridData.square5 === 'X' && gridData.square8 === 'X') {
-            setWinnerText('Player Two Wins!');
+            setWinnerText(playerTwoWinningText;
         }
         else if (gridData.square3 === 'O' && gridData.square6 === 'O' && gridData.square9 === 'O') {
-            setWinnerText('Player One Wins!');
+            setWinnerText(playerOneWinningText);
         }
         else if (gridData.square3 === 'X' && gridData.square6 === 'X' && gridData.square9 === 'X') {
-            setWinnerText('Player Two Wins!');
+            setWinnerText(playerTwoWinningText);
         }
         else if (gridData.square1 === 'O' && gridData.square5 === 'O' && gridData.square9 === 'O') {
-            setWinnerText('Player One Wins!');
+            setWinnerText(playerOneWinningText);
         }
         else if (gridData.square1 === 'X' && gridData.square5 === 'X' && gridData.square9 === 'X') {
-            setWinnerText('Player Two Wins!');
+            setWinnerText(playerTwoWinningText);
         }
         else if (gridData.square3 === 'O' && gridData.square5 === 'O' && gridData.square7 === 'O') {
-            setWinnerText('Player One Wins!');
+            setWinnerText(playerOneWinningText);
         }
         else if (gridData.square3 === 'X' && gridData.square5 === 'X' && gridData.square7 === 'X') {
-            setWinnerText('Player Two Wins!');
+            setWinnerText(playerTwoWinningText);
         }
         else if (gridData.square1 !== '' && gridData.square2 !== '' && gridData.square3 !== '' && gridData.square4 !== ''
         && gridData.square5 !== '' && gridData.square5 !== '' && gridData.square6 !== '' && gridData.square7 !== ''

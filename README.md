@@ -1,2 +1,3 @@
 # tic-tac-toe
-A simple tic-tac-toe game
+
+A 2 player tic-tac-toe game that uses React and Webpack.

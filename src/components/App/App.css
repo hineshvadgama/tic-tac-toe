@@ -4,7 +4,7 @@
 
 .page-grid {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 20vw 60vw 20vw;
     margin: 0 auto;
 }
 

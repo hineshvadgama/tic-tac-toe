@@ -155,7 +155,7 @@ const GameGrid = (props) => {
 
             </div>
 
-            { winningPlayer !== 'Nobody' ? <WinnerModal winner={winningPlayer} reset={resetGame} /> : false }
+            { winningPlayer !== 'Nobody' ? <WinnerModal id="vsModal" winner={winningPlayer} reset={resetGame} /> : false }
 
         </>
 

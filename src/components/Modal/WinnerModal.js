@@ -26,7 +26,7 @@ const WinnerModal = (props) => {
 
     return (
 
-        <div className="modal-container">
+        <div className="modal-container" id={props.id}>
 
             <h1 className={classColour}>{winnerHeaderText}</h1>
             

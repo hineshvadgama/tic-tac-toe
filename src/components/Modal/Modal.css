@@ -50,6 +50,23 @@
     box-shadow: 0 0 20px #000
 }
 
+#vsModal {
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+	animation-duration: 1s;
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 @media only screen and (max-width: 480px) {
 
     .modal-container {

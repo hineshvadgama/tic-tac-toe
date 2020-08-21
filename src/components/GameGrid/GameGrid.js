@@ -12,60 +12,29 @@ const GameGrid = (props) => {
 
     function handleGridSquareClick(e) {
 
+        const elementId = e.target.id;
+        const element = document.getElementById(elementId);
+
         // Ensure that player hasn't clicked on already occupied square
-        if (document.getElementById(e.target.id).getAttribute('data-value') === '') {
+        if (element.getAttribute('data-value') === '') {
 
             tempGridData = gridData;
 
-            switch (e.target.id) {
-                case 'one':
-                    tempGridData[0] = whichPlayersTurn === 1 ? 'O' : 'X';
-                    break;
-
-                case 'two':
-                    tempGridData[1] = whichPlayersTurn === 1 ? 'O' : 'X';
-                    break;
-
-                case 'three':
-                    tempGridData[2] = whichPlayersTurn === 1 ? 'O' : 'X';
-                    break;
-
-                case 'four':
-                    tempGridData[3] = whichPlayersTurn === 1 ? 'O' : 'X';
-                    break;
-
-                case 'five':
-                    tempGridData[4] = whichPlayersTurn === 1 ? 'O' : 'X';
-                    break;
-                
-                case 'six':
-                    tempGridData[5] = whichPlayersTurn === 1 ? 'O' : 'X';
-                    break;
-
-                case 'seven':
-                    tempGridData[6] = whichPlayersTurn === 1 ? 'O' : 'X';
-                    break;
-
-                case 'eight':
-                    tempGridData[7] = whichPlayersTurn === 1 ? 'O' : 'X';
-                    break;
-                
-                case 'nine':
-                    tempGridData[8] = whichPlayersTurn === 1 ? 'O' : 'X';
-                    break;
-
-                default:
-                    console.log('Unknown square');
-            }
+            // Set the square to O or X depending on which players turn it is
+            // In single player mode this will always be 1
+            tempGridData[elementId] = whichPlayersTurn === 1 ? 'O' : 'X';
+            element.setAttribute('data-value', `${whichPlayersTurn === 1 ? 'O' : 'X'}`);
 
             setNumberOfTurns(numberOfTurns = numberOfTurns + 1);
 
-            if (numberOfTurns >= 3) {
+            if (numberOfTurns >= 5) {
                 decideWinner();
             }
 
             if (props.versusMode === 'single') {
-                computersTurn();
+                if (numberOfTurns < 9) {
+                    computersTurn();
+                }
             }
             else {
                 setGridData(tempGridData);
@@ -84,11 +53,18 @@ const GameGrid = (props) => {
             }
         }
 
-        // Find a random number within that set of numbers.
+        // Find a random number within the emptySquares array.
         const computersSquare = emptySquares[Math.floor(Math.random() * emptySquares.length)];
+
+
         // Add a X to that square
         gridData[computersSquare] = 'X';
+        document.getElementById(computersSquare).setAttribute('data-value', 'X');
         setGridData(gridData);
+        setNumberOfTurns(numberOfTurns = numberOfTurns + 1);
+        if (numberOfTurns >= 5) {
+            decideWinner();
+        }
 
     }
 
@@ -154,6 +130,11 @@ const GameGrid = (props) => {
         setWinningPlayer('Nobody');
         setWhichPlayersTurn(1);
         setGridData(['', '', '', '', '', '', '', '', '']);
+        setNumberOfTurns(0);
+
+        for (let j = 0; j <= 8; j++) {
+            document.getElementById(j).setAttribute('data-value', '');
+        }
     }
 
     return (
@@ -162,15 +143,15 @@ const GameGrid = (props) => {
 
             <div className="game-grid">
 
-                <div onClick={handleGridSquareClick} data-value={gridData[0]} id="one"   className={`grid-square top left ${gridData[0] === 'O' ? 'green' : 'pink'}`}>{gridData[0]}</div>
-                <div onClick={handleGridSquareClick} data-value={gridData[1]} id="two"   className={`grid-square top ${gridData[1] === 'O' ? 'green' : 'pink'}`}>{gridData[1]}</div>
-                <div onClick={handleGridSquareClick} data-value={gridData[2]} id="three" className={`grid-square top right ${gridData[2] === 'O' ? 'green' : 'pink'}`}>{gridData[2]}</div>
-                <div onClick={handleGridSquareClick} data-value={gridData[3]} id="four"  className={`grid-square left ${gridData[3] === 'O' ? 'green' : 'pink'}`}>{gridData[3]}</div>
-                <div onClick={handleGridSquareClick} data-value={gridData[4]} id="five"  className={`grid-square ${gridData[4] === 'O' ? 'green' : 'pink'}`}>{gridData[4]}</div>
-                <div onClick={handleGridSquareClick} data-value={gridData[5]} id="six"   className={`grid-square right ${gridData[5] === 'O' ? 'green' : 'pink'}`}>{gridData[5]}</div>
-                <div onClick={handleGridSquareClick} data-value={gridData[6]} id="seven" className={`grid-square bottom left ${gridData[6] === 'O' ? 'green' : 'pink'}`}>{gridData[6]}</div>
-                <div onClick={handleGridSquareClick} data-value={gridData[7]} id="eight" className={`grid-square bottom ${gridData[7] === 'O' ? 'green' : 'pink'}`}>{gridData[7]}</div>
-                <div onClick={handleGridSquareClick} data-value={gridData[8]} id="nine"  className={`grid-square bottom right ${gridData[8] === 'O' ? 'green' : 'pink'}`}>{gridData[8]}</div>
+                <div onClick={handleGridSquareClick} data-value={gridData[0]} id="0"   className={`grid-square top left ${gridData[0] === 'O' ? 'green' : 'pink'}`}>{gridData[0]}</div>
+                <div onClick={handleGridSquareClick} data-value={gridData[1]} id="1"   className={`grid-square top ${gridData[1] === 'O' ? 'green' : 'pink'}`}>{gridData[1]}</div>
+                <div onClick={handleGridSquareClick} data-value={gridData[2]} id="2" className={`grid-square top right ${gridData[2] === 'O' ? 'green' : 'pink'}`}>{gridData[2]}</div>
+                <div onClick={handleGridSquareClick} data-value={gridData[3]} id="3"  className={`grid-square left ${gridData[3] === 'O' ? 'green' : 'pink'}`}>{gridData[3]}</div>
+                <div onClick={handleGridSquareClick} data-value={gridData[4]} id="4"  className={`grid-square ${gridData[4] === 'O' ? 'green' : 'pink'}`}>{gridData[4]}</div>
+                <div onClick={handleGridSquareClick} data-value={gridData[5]} id="5"   className={`grid-square right ${gridData[5] === 'O' ? 'green' : 'pink'}`}>{gridData[5]}</div>
+                <div onClick={handleGridSquareClick} data-value={gridData[6]} id="6" className={`grid-square bottom left ${gridData[6] === 'O' ? 'green' : 'pink'}`}>{gridData[6]}</div>
+                <div onClick={handleGridSquareClick} data-value={gridData[7]} id="7" className={`grid-square bottom ${gridData[7] === 'O' ? 'green' : 'pink'}`}>{gridData[7]}</div>
+                <div onClick={handleGridSquareClick} data-value={gridData[8]} id="8"  className={`grid-square bottom right ${gridData[8] === 'O' ? 'green' : 'pink'}`}>{gridData[8]}</div>
 
             </div>
 
